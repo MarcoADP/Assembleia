@@ -8,10 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "pauta")
 @Getter
+@NoArgsConstructor
 public class Pauta {
 
     @Id
@@ -21,4 +23,11 @@ public class Pauta {
     @NotBlank
     private String assunto;
 
+    public Pauta(String assunto) {
+        this.assunto = assunto;
+    }
+
+    public void update(String assunto) {
+        this.assunto = assunto;
+    }
 }

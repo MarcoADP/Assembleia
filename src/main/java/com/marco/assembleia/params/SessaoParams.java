@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 public class SessaoParams {
 
     @NotNull(message = "A Pauta da Sessão é obrigatório")
-    private Long pauta;
+    private Long pautaId;
 
     private Integer duracao;
 

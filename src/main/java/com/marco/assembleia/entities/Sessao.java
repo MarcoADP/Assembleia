@@ -11,10 +11,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "sessao")
 @Getter
+@NoArgsConstructor
 public class Sessao {
 
     @Id
@@ -34,4 +36,14 @@ public class Sessao {
     @NotNull
     private LocalDateTime fim;
 
+    public Sessao(Pauta pauta, Integer duracao) {
+        this.pauta = pauta;
+        this.duracao = duracao;
+        this.inicio = LocalDateTime.now();
+        this.fim = this.inicio.plusMinutes(this.duracao);
+    }
+
+    public Boolean isAtiva() {
+        return LocalDateTime.now().isBefore(this.fim);
+    }
 }
