@@ -36,14 +36,15 @@ public class Sessao {
     @NotNull
     private LocalDateTime fim;
 
-    public Sessao(Pauta pauta, Integer duracao) {
+    public Sessao(Pauta pauta, Integer duracao, LocalDateTime inicio) {
         this.pauta = pauta;
         this.duracao = duracao;
-        this.inicio = LocalDateTime.now();
+        this.inicio = inicio;
         this.fim = this.inicio.plusMinutes(this.duracao);
     }
 
     public Boolean isAtiva() {
         return LocalDateTime.now().isBefore(this.fim);
     }
+
 }

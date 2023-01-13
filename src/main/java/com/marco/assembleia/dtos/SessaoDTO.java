@@ -1,7 +1,7 @@
 package com.marco.assembleia.dtos;
 
 import com.marco.assembleia.entities.Sessao;
-import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.Getter;
@@ -12,16 +12,17 @@ public class SessaoDTO {
     private final Long id;
     private final PautaDTO pauta;
     private final Integer duracao;
-    private final LocalDateTime inicio;
-    private final LocalDateTime fim;
+    private final String inicio;
+    private final String fim;
     private final Boolean isAtiva;
 
     public SessaoDTO(Sessao sessao) {
         this.id = sessao.getId();
         this.pauta = new PautaDTO(sessao.getPauta());
         this.duracao = sessao.getDuracao();
-        this.inicio = sessao.getInicio();
-        this.fim = sessao.getFim();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        this.inicio = dateTimeFormatter.format(sessao.getInicio());
+        this.fim = dateTimeFormatter.format(sessao.getFim());
         this.isAtiva = sessao.isAtiva();
     }
 

@@ -3,7 +3,9 @@ package com.marco.assembleia.service;
 
 import com.marco.assembleia.entities.Sessao;
 import com.marco.assembleia.entities.Voto;
+import com.marco.assembleia.exceptions.UsuarioVotouException;
 import com.marco.assembleia.params.VotoParams;
+import com.marco.assembleia.repositories.ResultadoRepository;
 import com.marco.assembleia.repositories.VotoRepository;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -19,9 +21,13 @@ public class VotoService {
 
     final SessaoService sessaoService;
 
-    public VotoService(VotoRepository votoRepository, SessaoService sessaoService) {
+    private final ResultadoRepository resultadoRepository;
+
+    public VotoService(VotoRepository votoRepository, SessaoService sessaoService,
+                       ResultadoRepository resultadoRepository) {
         this.votoRepository = votoRepository;
         this.sessaoService = sessaoService;
+        this.resultadoRepository = resultadoRepository;
     }
 
     public Voto findById(Long id) {
@@ -33,9 +39,19 @@ public class VotoService {
     }
 
     public Voto create(VotoParams params) {
+
         Sessao sessao = sessaoService.findById(params.getSessaoId());
+        sessaoService.checkSessaoFinalizada(sessao);
+        checkUsuarioPodeVotar(params.getUsuarioId(), sessao);
+
         Voto voto = new Voto(params.getUsuarioId(), sessao, params.getVoto());
         return save(voto);
+    }
+
+    private void checkUsuarioPodeVotar(Integer usuarioId, Sessao sessao) {
+        if (votoRepository.findByUsuarioIdAndSessao(usuarioId, sessao).size() > 0) {
+            throw new UsuarioVotouException(usuarioId);
+        }
     }
 
     public Voto save(Voto voto) {

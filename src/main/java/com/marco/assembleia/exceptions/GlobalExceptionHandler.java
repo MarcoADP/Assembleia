@@ -49,10 +49,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildErrorResponse(exception, exception.getMessage(), HttpStatus.NOT_FOUND, request);
     }
 
-    @ExceptionHandler(ElementNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ResponseEntity<Object> handleElementNotFoundException(Exception exception, WebRequest request) {
-        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.NOT_FOUND, request);
+    @ExceptionHandler(SessaoFinalizadaException.class)
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    public ResponseEntity<Object> handleSessaoFinalizadaException(Exception exception, WebRequest request) {
+        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.NOT_ACCEPTABLE, request);
+    }
+
+    @ExceptionHandler(PautaComSessaoAtivaException.class)
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    public ResponseEntity<Object> handlePautaComSessaoAtivaException(Exception exception, WebRequest request) {
+        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.NOT_ACCEPTABLE, request);
+    }
+
+    @ExceptionHandler(UsuarioVotouException.class)
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    public ResponseEntity<Object> handleUsuarioVotouException(Exception exception, WebRequest request) {
+        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.NOT_ACCEPTABLE, request);
     }
 
     @ExceptionHandler(NoSuchElementException.class)
