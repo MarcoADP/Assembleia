@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "e65816f5-9484-427e-b449-cdf4de399eb3",
+		"name": "Assembleia (Sicredi)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tela Listar Pautas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tela/selecao/pauta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tela",
+						"selecao",
+						"pauta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tela Criar Pauta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tela/formulario/pauta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tela",
+						"formulario",
+						"pauta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Pauta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"assunto\": \"Assunto Postman\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pauta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pauta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tela Criar Sessão",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tela/formulario/sessao/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tela",
+						"formulario",
+						"sessao",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Sessão",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"duracao\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sessao/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sessao",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tela Criar Voto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tela/formulario/voto/19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tela",
+						"formulario",
+						"voto",
+						"19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Voto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuarioId\": 2,\n    \"voto\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/voto/19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"voto",
+						"19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Resultado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/resultado/sessao/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"resultado",
+						"sessao",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
