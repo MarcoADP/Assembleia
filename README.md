@@ -26,8 +26,8 @@ Telas:
 Ações possíveis na Tela de Seleção de Pautas
 - Ir para a Tela de Criação de Pautas
 - Ir para a Tela de Criação de Sessão caso a pauta selecionada não tenha uma sessão criada
-- Ir para a Tela de Votação caso a pauta selecionada selecionada tenha uma sessão ativa
-- Ir para a Tela de Resultado caso a pauta selecionada selecionada tenha uma sessão finalizada
+- Ir para a Tela de Votação caso a pauta selecionada tenha uma sessão ativa
+- Ir para a Tela de Resultado caso a pauta selecionada tenha uma sessão finalizada
 
 Collection Postman
 - O arquivo *Assembleia.postman_collection.json* em *src/main/resources* é uma coleção do Postman com as principais requisições do sistema.
