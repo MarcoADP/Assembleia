@@ -1,5 +1,6 @@
 package com.marco.assembleia.exceptions;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.format.DateTimeParseException;
 import java.util.NoSuchElementException;
 import java.util.Objects;
@@ -50,21 +51,33 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(SessaoFinalizadaException.class)
-    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Object> handleSessaoFinalizadaException(Exception exception, WebRequest request) {
-        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.NOT_ACCEPTABLE, request);
+        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.BAD_REQUEST, request);
     }
 
-    @ExceptionHandler(PautaComSessaoAtivaException.class)
-    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
-    public ResponseEntity<Object> handlePautaComSessaoAtivaException(Exception exception, WebRequest request) {
-        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.NOT_ACCEPTABLE, request);
+    @ExceptionHandler(SessaoAtivaException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Object> handleSessaoAtivaException(Exception exception, WebRequest request) {
+        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler(PautaComSessaoException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Object> handlePautaComSessaoException(Exception exception, WebRequest request) {
+        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.BAD_REQUEST, request);
     }
 
     @ExceptionHandler(UsuarioVotouException.class)
-    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Object> handleUsuarioVotouException(Exception exception, WebRequest request) {
-        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.NOT_ACCEPTABLE, request);
+        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Object> handleBusinessException(Exception exception, WebRequest request) {
+        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.BAD_REQUEST, request);
     }
 
     @ExceptionHandler(NoSuchElementException.class)
@@ -77,6 +90,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Object> handleDateTimeParseException(Exception exception, WebRequest request) {
         return buildErrorResponse(exception, "Data Invalida", HttpStatus.INTERNAL_SERVER_ERROR, request);
+    }
+
+    @ExceptionHandler(JsonProcessingException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Object> handleJsonProcessingException(Exception exception, WebRequest request) {
+        return buildErrorResponse(exception, exception.getMessage(), HttpStatus.BAD_REQUEST, request);
     }
 
 
