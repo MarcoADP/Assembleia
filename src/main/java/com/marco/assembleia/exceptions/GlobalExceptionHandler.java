@@ -1,9 +1,15 @@
 package com.marco.assembleia.exceptions;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.io.IOException;
 import java.time.format.DateTimeParseException;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +28,8 @@ import org.webjars.NotFoundException;
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     public static final String TRACE = "trace";
+
+    private static final Logger LOGGER = Logger.getLogger(GlobalExceptionHandler.class.getName());
 
     @Value("${reflectoring.trace:false}")
     private boolean printStackTrace;
@@ -115,6 +123,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             HttpStatus httpStatus,
             WebRequest request
     ) {
+        LOGGER.log(Level.WARNING, exception.getMessage());
+        LOGGER.log(Level.WARNING, Arrays.toString(exception.getStackTrace()));
         return buildErrorResponse(exception, exception.getMessage(), httpStatus, request);
     }
 
@@ -124,6 +134,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             HttpStatus httpStatus,
             WebRequest request
     ) {
+
+
+        writeLog(exception);
+
         ErrorResponse errorResponse = new ErrorResponse(httpStatus.value(), message);
         if (printStackTrace && isTraceOn(request)) {
             errorResponse.setStackTrace(ExceptionUtils.getStackTrace(exception));
@@ -148,4 +162,19 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     ) {
         return buildErrorResponse(ex, status, request);
     }
+
+    private void writeLog(Exception exception) {
+        FileHandler fileHandler;
+        try {
+            fileHandler = new FileHandler("app.log", true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        LOGGER.addHandler(fileHandler);
+        LOGGER.log(Level.WARNING, Arrays.stream(exception.getStackTrace())
+                .map(StackTraceElement::toString)
+                .collect(Collectors.joining("\n")));
+
+    }
+
 }

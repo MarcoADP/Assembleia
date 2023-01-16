@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+/app.log
+/app.log.1
+/app.log.1.lck
+/app.log.lck
