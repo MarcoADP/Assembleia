@@ -64,4 +64,8 @@ public class VotoService {
     public List<Voto> findBySessao(Sessao sessao) {
         return votoRepository.findBySessao(sessao);
     }
+
+    public void delete(Voto voto) {
+        votoRepository.delete(voto);
+    }
 }

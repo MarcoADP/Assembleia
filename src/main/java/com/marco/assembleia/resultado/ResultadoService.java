@@ -71,4 +71,8 @@ public class ResultadoService {
         }
         return resultado;
     }
+
+    public void delete(Resultado resultado) {
+        resultadoRepository.delete(resultado);
+    }
 }

@@ -38,4 +38,7 @@ public class PautaService {
         return pautaRepository.save(pauta);
     }
 
+    public void delete(Pauta pauta) {
+        pautaRepository.delete(pauta);
+    }
 }

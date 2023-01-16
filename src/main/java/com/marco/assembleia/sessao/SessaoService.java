@@ -62,4 +62,7 @@ public class SessaoService {
         }
     }
 
+    public void delete(Sessao sessao) {
+        sessaoRepository.delete(sessao);
+    }
 }
