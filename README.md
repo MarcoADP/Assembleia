@@ -14,6 +14,8 @@ Comandos:
 - Run: mvn spring-boot:run
 - Test: mvn test
 - OpenAPI: http://localhost:8080/swagger-ui/index.html#/
+- OpenAPI Cloud: http://assembleia.sa-east-1.elasticbeanstalk.com/swagger-ui/index.html#/
+- URL Base: http://assembleia.sa-east-1.elasticbeanstalk.com
 
 
 Telas:
