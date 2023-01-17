@@ -163,7 +163,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/voto/19",
+					"raw": "http://localhost:8080/voto/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -171,7 +171,7 @@
 					"port": "8080",
 					"path": [
 						"voto",
-						"19"
+						"1"
 					]
 				}
 			},
@@ -183,7 +183,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/resultado/sessao/1",
+					"raw": "http://localhost:8080/resultado/sessao/19",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -192,7 +192,220 @@
 					"path": [
 						"resultado",
 						"sessao",
-						"1"
+						"19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tela Listar Pautas AWS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://assembleia.sa-east-1.elasticbeanstalk.com/tela/selecao/pauta",
+					"protocol": "http",
+					"host": [
+						"assembleia",
+						"sa-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"tela",
+						"selecao",
+						"pauta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tela Criar Pauta AWS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://assembleia.sa-east-1.elasticbeanstalk.com/tela/formulario/pauta",
+					"protocol": "http",
+					"host": [
+						"assembleia",
+						"sa-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"tela",
+						"formulario",
+						"pauta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Pauta AWS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"assunto\": \"Assunto Postman\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://assembleia.sa-east-1.elasticbeanstalk.com/pauta",
+					"protocol": "http",
+					"host": [
+						"assembleia",
+						"sa-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"pauta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tela Criar Sessão AWS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://assembleia.sa-east-1.elasticbeanstalk.com/tela/formulario/sessao/46",
+					"protocol": "http",
+					"host": [
+						"assembleia",
+						"sa-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"tela",
+						"formulario",
+						"sessao",
+						"46"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Sessão AWS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"duracao\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://assembleia.sa-east-1.elasticbeanstalk.com/sessao/46",
+					"protocol": "http",
+					"host": [
+						"assembleia",
+						"sa-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"sessao",
+						"46"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tela Criar Voto AWS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://assembleia.sa-east-1.elasticbeanstalk.com/tela/formulario/voto/33",
+					"protocol": "http",
+					"host": [
+						"assembleia",
+						"sa-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"tela",
+						"formulario",
+						"voto",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Voto AWS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuarioId\": 2,\n    \"voto\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://assembleia.sa-east-1.elasticbeanstalk.com/voto/33",
+					"protocol": "http",
+					"host": [
+						"assembleia",
+						"sa-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"voto",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Resultado AWS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://assembleia.sa-east-1.elasticbeanstalk.com/resultado/sessao/33",
+					"protocol": "http",
+					"host": [
+						"assembleia",
+						"sa-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"resultado",
+						"sessao",
+						"33"
 					]
 				}
 			},
