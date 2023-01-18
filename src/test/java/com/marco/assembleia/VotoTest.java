@@ -40,7 +40,7 @@ public class VotoTest {
     @Test
     void createSuccess() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
         pautas.add(pauta);
 
@@ -59,9 +59,9 @@ public class VotoTest {
     }
 
     @Test
-    void createUsuarioJaVotou() {
+    void createUserVotedException() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
         pautas.add(pauta);
 
@@ -80,9 +80,9 @@ public class VotoTest {
     }
 
     @Test
-    void createSessaoFinalizada() {
+    void createSessionFinished() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
         pautas.add(pauta);
 
@@ -98,7 +98,7 @@ public class VotoTest {
     }
 
     @AfterAll
-    public void clearPautas() {
+    public void clear() {
         votos.forEach(voto -> votoService.delete(voto));
         sessoes.forEach(sessao -> sessaoService.delete(sessao));
         pautas.forEach(pauta -> pautaService.delete(pauta));

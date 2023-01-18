@@ -20,22 +20,22 @@ public class TelaResource {
 
     @PostMapping("/selecao/pauta")
     public @ResponseBody TelaDTO createSelectPauta() {
-        return telaService.createSelecaoPauta();
+        return telaService.createSelectPauta();
     }
 
     @PostMapping("/formulario/pauta")
     public @ResponseBody TelaDTO createFormPauta() throws JsonProcessingException {
-        return telaService.createFormularioPauta();
+        return telaService.createFormPauta();
     }
 
     @PostMapping("/formulario/sessao/{pautaId}")
     public @ResponseBody TelaDTO createFormSessao(@PathVariable Long pautaId) throws JsonProcessingException {
-        return telaService.createFormularioSessao(pautaId);
+        return telaService.createFormSessao(pautaId);
     }
 
     @PostMapping("/formulario/voto/{sessaoId}")
     public @ResponseBody TelaDTO createFormVoto(@PathVariable Long sessaoId) throws JsonProcessingException {
-        return telaService.createFormularioVoto(sessaoId);
+        return telaService.createFormVoto(sessaoId);
     }
 
 }

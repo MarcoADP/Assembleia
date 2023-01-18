@@ -35,3 +35,8 @@ build/
 /app.log.1
 /app.log.1.lck
 /app.log.lck
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

@@ -28,7 +28,7 @@ public class PautaTest {
     @Test
     void createSuccess() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
         pautas.add(pauta);
 
@@ -40,7 +40,7 @@ public class PautaTest {
     @Test
     void updateSuccess() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
 
         String assuntoUpdate = "Pauta Update Success";
@@ -55,7 +55,7 @@ public class PautaTest {
     @Test
     void findByIdSuccess() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
 
         Pauta pautaFind = pautaService.findById(pauta.getId());
@@ -76,7 +76,7 @@ public class PautaTest {
     }
 
     @AfterAll
-    public void clearPautas() {
+    public void clear() {
         pautas.forEach(pauta -> pautaService.delete(pauta));
     }
 

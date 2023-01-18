@@ -11,7 +11,7 @@ public class UsuarioService {
 
     public SituacaoVotoDTO verificarSituacao(Long cpf) {
         return Math.random() > 0.5
-                ? new SituacaoVotoDTO(VotoStatus.ABLE_TO_VOTO)
+                ? new SituacaoVotoDTO(VotoStatus.ABLE_TO_VOTE)
                 : new SituacaoVotoDTO(VotoStatus.UNABLE_TO_VOTE);
     }
 }

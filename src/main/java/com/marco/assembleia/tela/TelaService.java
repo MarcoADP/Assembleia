@@ -34,7 +34,7 @@ public class TelaService {
         this.sessaoService = sessaoService;
     }
 
-    public TelaDTO createSelecaoPauta() {
+    public TelaDTO createSelectPauta() {
 
         Iterable<Pauta> pautas = pautaService.findAll();
         List<TelaItemDTO> itens = new ArrayList<>();
@@ -65,7 +65,7 @@ public class TelaService {
         return TelaDTO.createSelecao("Selecione uma pauta", itens);
     }
 
-    public TelaDTO createFormularioPauta() throws JsonProcessingException {
+    public TelaDTO createFormPauta() throws JsonProcessingException {
         List<TelaItemDTO> itens = new ArrayList<>();
 
         itens.add(TelaItemDTO.createInput(
@@ -82,7 +82,7 @@ public class TelaService {
         return TelaDTO.createFormulario("Cadastre uma nova pauta", itens, botaoOk, botaoCancelar);
     }
 
-    public TelaDTO createFormularioSessao(Long pautaId) throws JsonProcessingException {
+    public TelaDTO createFormSessao(Long pautaId) throws JsonProcessingException {
 
         Pauta pauta = pautaService.findById(pautaId);
         sessaoService.checkPautaComSessao(pauta);
@@ -103,7 +103,7 @@ public class TelaService {
         return TelaDTO.createFormulario("Crie uma nova sessão", itens, botaoOk, botaoCancelar);
     }
 
-    public TelaDTO createFormularioVoto(Long sessaoId) throws JsonProcessingException {
+    public TelaDTO createFormVoto(Long sessaoId) throws JsonProcessingException {
 
         Sessao sessao = sessaoService.findById(sessaoId);
         sessaoService.checkSessaoFinalizada(sessao);

@@ -38,7 +38,7 @@ public class ResultadoTest {
     @Test
     void createSuccess() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
         pautas.add(pauta);
 
@@ -57,7 +57,7 @@ public class ResultadoTest {
     @Test
     void createNotNecessary() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
         pautas.add(pauta);
 
@@ -76,9 +76,9 @@ public class ResultadoTest {
     }
 
     @Test
-    void createSessaoAtiva() {
+    void createFailed() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
         pautas.add(pauta);
 
@@ -93,7 +93,7 @@ public class ResultadoTest {
     }
 
     @AfterAll
-    public void clearPautas() {
+    public void clear() {
         resultados.forEach(resultado -> resultadoService.delete(resultado));
         sessoes.forEach(sessao -> sessaoService.delete(sessao));
         pautas.forEach(pauta -> pautaService.delete(pauta));

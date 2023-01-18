@@ -32,7 +32,7 @@ public class SessaoTest {
     @Test
     void createSuccess() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
         pautas.add(pauta);
 
@@ -49,7 +49,7 @@ public class SessaoTest {
     @Test
     void createFailed() {
 
-        PautaParams params = new PautaParams("Pauta Create Success");
+        PautaParams params = new PautaParams("Pauta Teste");
         Pauta pauta = pautaService.create(params);
         pautas.add(pauta);
 
@@ -64,7 +64,7 @@ public class SessaoTest {
     }
 
     @AfterAll
-    public void clearPautas() {
+    public void clear() {
         sessoes.forEach(sessao -> sessaoService.delete(sessao));
         pautas.forEach(pauta -> pautaService.delete(pauta));
     }
