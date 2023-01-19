@@ -1,4 +1,4 @@
-package com.marco.assembleia;
+package com.marco.assembleia.integracao;
 
 import com.marco.assembleia.exceptions.SessaoFinalizadaException;
 import com.marco.assembleia.exceptions.UsuarioVotouException;

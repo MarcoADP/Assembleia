@@ -1,6 +1,7 @@
 package com.marco.assembleia.sessao;
 
 import com.marco.assembleia.exceptions.PautaComSessaoException;
+import com.marco.assembleia.exceptions.SessaoAtivaException;
 import com.marco.assembleia.exceptions.SessaoFinalizadaException;
 import com.marco.assembleia.pauta.Pauta;
 import com.marco.assembleia.pauta.PautaService;
@@ -59,6 +60,12 @@ public class SessaoService {
     public void checkSessaoFinalizada(Sessao sessao) {
         if (!sessao.isAtiva()) {
             throw new SessaoFinalizadaException(sessao.getPauta().getAssunto());
+        }
+    }
+
+    public void checkSessaoAtiva(Sessao sessao) {
+        if (sessao.isAtiva()) {
+            throw new SessaoAtivaException(sessao.getPauta().getAssunto());
         }
     }
 

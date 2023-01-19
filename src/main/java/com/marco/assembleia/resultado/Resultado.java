@@ -36,10 +36,10 @@ public class Resultado {
     @NotNull
     private Boolean aprovado;
 
-    public Resultado(Sessao sessao, Integer favoraveis, Integer contrarios, Boolean aprovado) {
+    public Resultado(Sessao sessao, Integer favoraveis, Integer contrarios) {
         this.sessao = sessao;
         this.favoraveis = favoraveis;
         this.contrarios = contrarios;
-        this.aprovado = aprovado;
+        this.aprovado = favoraveis > contrarios;
     }
 }

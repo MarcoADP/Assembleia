@@ -2,7 +2,6 @@ package com.marco.assembleia.voto;
 
 
 import com.marco.assembleia.exceptions.UsuarioVotouException;
-import com.marco.assembleia.resultado.ResultadoRepository;
 import com.marco.assembleia.sessao.Sessao;
 import com.marco.assembleia.sessao.SessaoService;
 import java.util.List;
@@ -19,13 +18,9 @@ public class VotoService {
 
     final SessaoService sessaoService;
 
-    private final ResultadoRepository resultadoRepository;
-
-    public VotoService(VotoRepository votoRepository, SessaoService sessaoService,
-                       ResultadoRepository resultadoRepository) {
+    public VotoService(VotoRepository votoRepository, SessaoService sessaoService) {
         this.votoRepository = votoRepository;
         this.sessaoService = sessaoService;
-        this.resultadoRepository = resultadoRepository;
     }
 
     public Voto findById(Long id) {

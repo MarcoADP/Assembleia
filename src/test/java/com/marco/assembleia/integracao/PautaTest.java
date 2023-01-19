@@ -1,4 +1,4 @@
-package com.marco.assembleia;
+package com.marco.assembleia.integracao;
 
 import com.marco.assembleia.pauta.Pauta;
 import com.marco.assembleia.pauta.PautaParams;
@@ -23,7 +23,7 @@ public class PautaTest {
     private PautaService pautaService;
 
 
-    private static final String NOT_FOUND_MSG = "Pauta não encontrada";
+    private static final String PAUTA_NAO_ENCONTRADA = "Pauta não encontrada";
 
     @Test
     void createSuccess() {
@@ -71,7 +71,7 @@ public class PautaTest {
         Exception exception = Assertions.assertThrows(
                 NotFoundException.class,
                 () -> pautaService.findById(-1L));
-        Assertions.assertEquals(NOT_FOUND_MSG, exception.getMessage());
+        Assertions.assertEquals(PAUTA_NAO_ENCONTRADA, exception.getMessage());
 
     }
 

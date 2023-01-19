@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Getter
+@NoArgsConstructor
+@ToString
 public class PautaDTO {
 
-    private final Long id;
-    private final String assunto;
+    private Long id;
+    private String assunto;
 
     public PautaDTO(Pauta pauta) {
         this.id = pauta.getId();

@@ -1,6 +1,5 @@
 package com.marco.assembleia.resultado;
 
-import com.marco.assembleia.exceptions.SessaoAtivaException;
 import com.marco.assembleia.sessao.Sessao;
 import com.marco.assembleia.sessao.SessaoService;
 import com.marco.assembleia.voto.Voto;
@@ -52,10 +51,7 @@ public class ResultadoService {
 
     public Resultado create(Long sessaoId) {
         Sessao sessao = sessaoService.findById(sessaoId);
-
-        if (sessao.isAtiva()) {
-            throw new SessaoAtivaException(sessao.getPauta().getAssunto());
-        }
+        sessaoService.checkSessaoAtiva(sessao);
 
         Optional<Resultado> resultadoOpt = findBySessao(sessao);
         Resultado resultado;
@@ -65,8 +61,7 @@ public class ResultadoService {
             List<Voto> votos = votoService.findBySessao(sessao);
             int favoraveis = Math.toIntExact(votos.stream().filter(Voto::getVoto).count());
             int contrarios = votos.size() - favoraveis;
-            Boolean aprovado = favoraveis > contrarios;
-            resultado = new Resultado(sessao, favoraveis, contrarios, aprovado);
+            resultado = new Resultado(sessao, favoraveis, contrarios);
             resultado = save(resultado);
         }
         return resultado;

@@ -1,5 +1,7 @@
 package com.marco.assembleia.pauta;
 
+import com.marco.assembleia.exceptions.BusinessException;
+import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
@@ -19,11 +21,16 @@ public class PautaService {
         return pautaRepository.findById(id).orElseThrow(() -> new NotFoundException("Pauta não encontrada"));
     }
 
-    public Iterable<Pauta> findAll() {
+    public List<Pauta> findAll() {
         return pautaRepository.findAll();
     }
 
     public Pauta create(PautaParams params) {
+
+        if (params.getAssunto().isBlank()) {
+            throw new BusinessException("É necessário informar o assunto da pauta");
+        }
+
         Pauta pauta = new Pauta(params.getAssunto());
         return save(pauta);
     }
